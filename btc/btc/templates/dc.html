@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# btcinteract:http://ogp.me/ns/fb/btcinteract:challenge#">
+<meta property="fb:app_id" content="304310869661159"/>
+<meta property="og:type" content="btcinteract:challenge" />
+<meta property="og:description" content="{{dc.challenge}}"/>
+<meta property="og:url" content="http://btcinteract.com/day/{{dc.id}}/" />
+<meta property="og:title" content="Daily challenge: {{dc.theme}}" />
+<meta property="og:image" content="http://btcinteract.com/{{MEDIA_URL}}/images/Logo_512x512_2.png" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>BE THE CHANGE (inter)ACT</title>
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="{{MEDIA_URL}}/css/foundation.css">
+  <link rel="stylesheet" href="{{MEDIA_URL}}/css/app.css">
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+  <![endif]-->
+
+  <script src="{{MEDIA_URL}}/js/modernizr.foundation.js"></script>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+<header style="background-image:url('{{MEDIA_URL}}/images/Brick_100pxl-hi.png')">
+
+  <div class="row" id="header">
+  <div class="four columns hide-for-small" style="padding-left:80px">
+  	<img src="{{MEDIA_URL}}/images/BTC trans bug_120p-high.png" />
+  </div>
+    <div class="eight mobile-two columns pull-one hide-for-small" style="padding-top:10px">
+      <img src="{{MEDIA_URL}}/images/Challenges4Change_90p-hi.png" />
+    </div>
+    <div class="eight mobile-two columns pull-five show-for-small" style="padding-top:10px">
+      <img src="{{MEDIA_URL}}/images/Challenges4Change_45p-hi.png" />
+    </div>
+  </div>
+</header>
+ <body> 
+  <div class="row">
+  	<div class="one mobile-one columns push-eight">
+  		<p>Welcome </p>
+  	</div>
+  		<div class="two mobile-two columns push-eight ">
+  		<p><a href=#>| My Account </a></p>
+  	</div>
+  		<div class="two mobile-one columns">
+  		<p><a href="javascript: fbLogout()"> | Sign Out</a></p>
+  	</div>
+  </div>
+  
+   <div class="row">
+   		<div class="one mobile-one columns">
+           <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_left.png" /></a>
+        </div>
+        <div class="one mobile-one columns push-one">
+		<a href="/" align="center"> TODAY </a>
+        </div>
+        <div class="one mobile-one columns push-one" style="padding-left:90px">
+           <a href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_right.png" /></a>
+        </div>
+        <div class="two mobile-one columns push-one">
+            <p><a href="#subscribe" class="small alert round button">Subscribe</a></p>
+        </div>
+   </div>
+  <div class="row">
+	<div class="three mobile-one columns push-seven">
+		<h5 class="font_text">{{str_date}}</h5>
+	</div>
+ </div>
+  <div class="row">
+    <div class="eight columns push-four">
+      <hr>
+      <h3 align='center'> <span class="font_text"> Today's theme : <span class="redText"> {{dc.theme}} </span></span></h3>
+      <hr>
+      <!-- Grid Example -->
+      <div class="row">
+        <div class="twelve columns">
+            <p><span class="font_text">{{dc.quote}}</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="three mobile-two columns push-nine ">
+            <p><span class="font_text">-{{dc.attribution}}</span></p>
+        </div>
+      </div>
+     <div class="row">
+     <div class="twelve columns">
+            <p style="color:darkred"><span class="font_text">{{dc.challenge}}</span> </p>
+     </div>  
+     </div>   
+      <div class="row">
+        <div class="six columns">
+          <p><a href="javascript: challengeAFriend('{{dc.theme}}')" class="small alert round button">Challenge a friend</a></p>
+        </div>
+        <div class="two columns push-one">
+          <a href="javascript: didIt('{{dc.id}}'), changeStyle()" class="small alert round button" id="didit">Did it!</a>
+        </div>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+	function changeStyle(){
+        document.getElementById('didit').innerHTML="Undo it";
+	document.getElementById('didit').setAttribute("class", "small success round button");
+    }	
+    </script>
+    
+    <div class="four columns pull-eight">
+        <div class="two columns pull-one">
+		<div class="fb-send" data-href="http://btcinteract.com"></div>
+        </div>
+        <div class="two columns push-five">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://btcinteract.com" data-text="Today's Daily Challenge Theme: {{dc.theme}}" data-lang="en">Tweet</a>
+        </div>
+	<div class="two columns pull-six">
+		<a href=# >Email</a>
+	</div>
+    </div>
+   
+   <div class = "four columns pull-eight">
+     <div class="eight columns">
+<!-- facebook like for mobile <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="182" data-height="320" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div> !--> 
+    <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="240" data-height="400" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
+     </div>
+   </div>
+
+ 
+
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=304310869661159";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id) {
+var js,fjs=d.getElementsByTagName(s)[0];
+if(!d.getElementById(id)){
+js=d.createElement(s);
+js.id=id;
+js.src="//platform.twitter.com/widgets.js";
+fjs.parentNode.insertBefore(js,fjs);}
+}(document,"script","twitter-wjs");</script>
+
+  <!-- Included JS Files -->
+  <script src="{{MEDIA_URL}}/js/jquery.min.js"></script>
+  <script src="{{MEDIA_URL}}/js/jquery.reveal.js"></script>
+  <script src="{{MEDIA_URL}}/js/jquery.orbit-1.4.0.js"></script>
+  <script src="{{MEDIA_URL}}/js/jquery.customforms.js"></script>
+  <script src="{{MEDIA_URL}}/js/jquery.placeholder.min.js"></script>
+  <script src="{{MEDIA_URL}}/js/jquery.tooltips.js"></script>
+  <script src="{{MEDIA_URL}}/js/app.js"></script>
+  <script src="{{MEDIA_URL}}/js/daily_challenge.js"></script>
+</body>
+</html>
