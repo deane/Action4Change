@@ -11,8 +11,8 @@
 <meta property="fb:app_id" content="304310869661159"/>
 <meta property="og:type" content="btcinteract:challenge" />
 <meta property="og:description" content="{{dc.challenge}}"/>
-<meta property="og:url" content="http://btcinteract.com/day/{{dc.id}}/" />
-<meta property="og:title" content="Daily challenge: {{dc.theme}}" />
+<meta property="og:url" content="http://challenges4change.org/day/{{day.year}}/{{day.month}}/{{date.day}}" />
+<meta property="og:title" content="Daily Challenge: {{dc.theme}}" />
 <meta property="og:image" content="http://btcinteract.com/{{MEDIA_URL}}/images/Logo_512x512_2.png" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
@@ -44,47 +44,49 @@
     <div class="eight mobile-two columns pull-one hide-for-small" style="padding-top:10px">
       <img src="{{MEDIA_URL}}/images/Challenges4Change_90p-hi.png" />
     </div>
-    <div class="eight mobile-two columns pull-five show-for-small" style="padding-top:10px">
+    <div class="eight mobile-four columns pull-five show-for-small" style="align:center">
       <img src="{{MEDIA_URL}}/images/Challenges4Change_45p-hi.png" />
     </div>
   </div>
 </header>
  <body> 
-  <div class="row">
-  	<div class="one mobile-one columns push-eight">
-  		<p>Welcome </p>
-  	</div>
-  		<div class="two mobile-two columns push-eight ">
-  		<p><a href=#>| My Account </a></p>
-  	</div>
-  		<div class="two mobile-one columns">
-  		<p><a href="javascript: fbLogout()"> | Sign Out</a></p>
-  	</div>
-  </div>
-  
    <div class="row">
-   		<div class="one mobile-one columns">
+   	<div class="one mobile-one columns push-one hide-for-small" style="padding-left:80px">
            <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_left.png" /></a>
         </div>
-        <div class="one mobile-one columns push-one">
-		<a href="/" align="center"> TODAY </a>
+	<div class="one mobile-one columns push-one show-for-small" style="padding-left:30px">
+           <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_left.png" /></a>
         </div>
-        <div class="one mobile-one columns push-one" style="padding-left:90px">
+        <div class="one mobile-two columns push-one">
+		<a href="/" align="center" class="font_text redText"><h3> TODAY</h3> </a>
+        </div>
+        <div class="one mobile-one columns push-one" style="padding-left:30px">
            <a href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_right.png" /></a>
         </div>
-        <div class="two mobile-one columns push-one">
-            <p><a href="#subscribe" class="small alert round button">Subscribe</a></p>
+	<div class="three mobile-four columns push-two hide-for-small">
+                <h5 class="font">{{str_date}}</h5>
+        </div>
+        <div class="three mobile-four columns show-for-small" style="align:center">
+                <h5 class="font" style="align:center">{{str_date}}</h5>
+        </div>
+        <div class="five mobile-four columns push-two hide-for-small" style="padding-left:0px">
+            <p><a href="javascript:getMail(); changeSubs()"  class="small alert round button shaddowButton" id="subs" ><span class="font_button"><b>Subscribe to Daily Challenge Emails</b></span></a></p>
+        </div>
+         <div class="five mobile-four columns push-one show-for-small" style="align:center">
+            <p><a href="javascript: getMail(); changeSubs()" style="align:center" class="small alert round button shaddowButton" id="subs-s"><span class="font_button"><b>Subscribe to Daily Challenge Emails</b></span></a></p>
         </div>
    </div>
-  <div class="row">
-	<div class="three mobile-one columns push-seven">
-		<h5 class="font_text">{{str_date}}</h5>
-	</div>
  </div>
+ <script type="text/javascript">
+        function changeSubs(){
+        document.getElementById('subs').innerHTML="<span class='font_button'><b>Unsubscribe from Daily Challenge Emails</b></span>";
+ document.getElementById('subs-s').innerHTML="<span class='font_button'><b>Unsubscribe from Daily Challenge Emails</b></span>";
+    }   
+    </script>
   <div class="row">
     <div class="eight columns push-four">
-      <hr>
-      <h3 align='center'> <span class="font_text"> Today's theme : <span class="redText"> {{dc.theme}} </span></span></h3>
+   
+      <h3 align='center'> <span class="font"> Today's Theme: <span class="redText"> {{dc.theme}} </span></span></h3>
       <hr>
       <!-- Grid Example -->
       <div class="row">
@@ -93,7 +95,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="three mobile-two columns push-nine ">
+        <div class="four mobile-two columns push-eight ">
             <p><span class="font_text">-{{dc.attribution}}</span></p>
         </div>
       </div>
@@ -103,11 +105,11 @@
      </div>  
      </div>   
       <div class="row">
-        <div class="six columns">
-          <p><a href="javascript: challengeAFriend('{{dc.theme}}')" class="small alert round button">Challenge a friend</a></p>
+        <div class="six mobile-two columns">
+          <p><a href="javascript: challengeAFriend('{{dc.theme}}','{{date.year}}','{{date.month}}','{{date.day}}')" class="small alert round button shaddowButton"><span class="font_button"><b>Challenge a Friend</b></span></a></p>
         </div>
-        <div class="two columns push-one">
-          <a href="javascript: didIt('{{dc.id}}'), changeStyle()" class="small alert round button" id="didit">Did it!</a>
+        <div class="six mobile-two columns push-four">
+         <p><a href="javascript: didIt('{{date.year}}','{{date.month}}','{{date.day}}'), changeStyle()" class="small alert round button shaddowButton" id="didit"><span class="font_button"><b>Did It!</b></span></a></p>
         </div>
       </div>
     </div>
@@ -120,25 +122,31 @@
     </script>
     
     <div class="four columns pull-eight">
-        <div class="two columns pull-one">
-		<div class="fb-send" data-href="http://btcinteract.com"></div>
+	<div class="five columns">
+		<a href="javascript:fbLogin()" id="login"><div class="fb-login-button" data-show-faces="false" data-width="150" data-max-rows="1"></div></a>
+		<a href="javascript:fbLogout()" style="display:none" id='logout'><img src="{{MEDIA_URL}}/images/FbLog Out_bold_22px-hi.png"/></a>
+	</div>
+        <div class="two columns pull-six">
+		<div class="fb-send" data-href="http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}"></div>
         </div>
-        <div class="two columns push-five">
+    </div>
+    <div class="four columns pull-eight" style="padding-top:15px">
+        <div class="one columns push-one">
 		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://btcinteract.com" data-text="Today's Daily Challenge Theme: {{dc.theme}}" data-lang="en">Tweet</a>
         </div>
-	<div class="two columns pull-six">
-		<a href=# >Email</a>
+	<div class="three columns pull-five">
+		<a href=# ><img src="{{MEDIA_URL}}/images/email_send.png" /></a>
 	</div>
     </div>
    
    <div class = "four columns pull-eight">
-     <div class="eight columns">
-<!-- facebook like for mobile <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="182" data-height="320" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div> !--> 
-    <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="240" data-height="400" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
+     <div class="eight columns push two" style="padding-top:15px">
+
+    <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="240" data-height="800" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
      </div>
    </div>
 
- 
+{% if request.facebook_message %}{{ request.facebook_message }}{% endif %} 
 
 <div id="fb-root"></div>
 

@@ -115,6 +115,7 @@ MIDDLEWARE_CLASSES = [
     "pagination.middleware.PaginationMiddleware",
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "challenge.FacebookConnectMiddleware.FacebookConnectMiddleware",
 ]
 
 ROOT_URLCONF = "btc.urls"
@@ -154,7 +155,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.humanize",
-    
+    "cronjobs",
+        
     "pinax.templatetags",
     
     # theme
@@ -183,7 +185,7 @@ INSTALLED_APPS = [
     "profiles",
     "gunicorn",
     "challenge",
-    
+    "mail", 
     #social
     "django_facebook",
 
@@ -237,6 +239,13 @@ EMAIL_DEBUG = DEBUG
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
+
+#sendgrid emails
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'dean'
+EMAIL_HOST_PASSWORD = 'dean1'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
