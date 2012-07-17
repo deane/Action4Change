@@ -7,10 +7,6 @@ body {
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8));
     background: -moz-linear-gradient(top,  #fff,  #cbccc8);
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cbccc8'); }
-
-header{
-background: transparent url({{MEDIA_URL}}/images/Block_100pxl-hi.png) repeat-x ;
-}
 .redText {
 color:darkred;
 }
@@ -27,4 +23,59 @@ font-family:"Cambria","Georgia", Times, serif;
 }
 .shaddowButton{
 text-shadow: 0.1em 0.1em 0.2em black;
+}
+.grayout {
+    width: 1000%;
+    height: 1000%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    opacity: 0.8;
+    background-color: #092024;
+}
+.overlay {
+    text-align: center;
+    color: white;
+    width: 70%;
+    margin-left: auto;   
+    margin-right: auto; 
+    max-width: 70%;
+    max-height: 92%;
+    position: fixed;
+    top: 20%;
+    left: 15%;
+    z-index: 10;
+    background-color: #092024;
+    border: #000 1px solid;
+    box-shadow: #000 1px 1px 15px;
+    padding: 5px 5px 12px 5px;
+    overflow: auto;
+    border-radius: 10px;
+}
+.overlay a{
+color: black;}
+.coupon-overlay {
+    color: white;
+    border: 3px dashed #ccc;
+    text-align: center;
+    border-radius: 10px;
+}
+
+a.close-button {
+    font: hidden;
+    height: 20px;
+    width: 20px;
+    background: transparent url("/static/images/close-white.png") no-repeat top left;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.spaced_overlay{
+margin-left: auto;  
+margin-right: auto; 
+padding-top:10px;
+padding-bottom:50px;
+height:81px;
+width:280px;
 }

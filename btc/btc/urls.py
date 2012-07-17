@@ -24,11 +24,9 @@ urlpatterns = patterns("",
     url(r"^profiles/", include("idios.urls")),
     url(r"^notices/", include("notification.urls")),
     url(r"^announcements/", include("announcements.urls")),
-#    url(r"^day/", include("challenge.urls")),
     url(r"^mail/", include("mail.urls")),
     url(r"", include("challenge.urls")),
 )
-#from challenge.urls import *
 
 if settings.SERVE_MEDIA:
     urlpatterns += patterns("",

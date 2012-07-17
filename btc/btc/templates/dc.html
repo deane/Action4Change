@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-
+<!DOCTYPE htm>
+{% load custom_filters %}
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -15,10 +15,10 @@
 <meta property="og:title" content="Daily Challenge: {{dc.theme}}" />
 <meta property="og:image" content="http://btcinteract.com/{{MEDIA_URL}}/images/Logo_512x512_2.png" />
   <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, user-scalable=no">
 
-  <title>BE THE CHANGE (inter)ACT</title>
-
+  <title>Challenges4Change</title>
+  <link rel="shortcut icon" href="{{MEDIA_URL}}/images/ILU-hand_black-white-outline_16x16.ico">
   <!-- Included CSS Files -->
   <link rel="stylesheet" href="{{MEDIA_URL}}/css/foundation.css">
   <link rel="stylesheet" href="{{MEDIA_URL}}/css/app.css">
@@ -33,9 +33,13 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-
+  <script type="text/javascript">
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-32887214-2']);
+     _gaq.push(['_trackPageview']);
+  </script>
 </head>
-<header style="background-image:url('{{MEDIA_URL}}/images/Brick_100pxl-hi.png')">
+<header style="background-image:url('{{MEDIA_URL}}/images/Brick_100pxl-hi.png'); background-repeat: repeat-x">
 
   <div class="row" id="header">
   <div class="four columns hide-for-small" style="padding-left:80px">
@@ -44,109 +48,155 @@
     <div class="eight mobile-two columns pull-one hide-for-small" style="padding-top:10px">
       <img src="{{MEDIA_URL}}/images/Challenges4Change_90p-hi.png" />
     </div>
-    <div class="eight mobile-four columns pull-five show-for-small" style="align:center">
+    <div class="eight mobile-four columns pull-five show-for-small" style="display: block;margin-left: auto;margin-right: auto">
       <img src="{{MEDIA_URL}}/images/Challenges4Change_45p-hi.png" />
     </div>
   </div>
 </header>
- <body> 
+
+ <body onload="javascript: startOverlay()">
+   <div class="row"><div class="twelve mobile-four columns hide-for-small" id="alert-message"></div></div>
    <div class="row">
-   	<div class="one mobile-one columns push-one hide-for-small" style="padding-left:80px">
-           <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_left.png" /></a>
+   	<div class="one mobile-one columns hide-for-small">
+           <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Previous Day Button'])"><img src="{{MEDIA_URL}}/images/arrow_left.png" style="padding-top:15px"/></a>
         </div>
-	<div class="one mobile-one columns push-one show-for-small" style="padding-left:30px">
-           <a href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_left.png" /></a>
+        <div class="one mobile-two columns hide-for-small" style="padding-right:130px">
+		<a href="/" class="font_text redText" onclick="_gaq.push(['_trackEvent', 'App Nav','Today Button'])"><h3>TODAY</h3></a>
         </div>
-        <div class="one mobile-two columns push-one">
-		<a href="/" align="center" class="font_text redText"><h3> TODAY</h3> </a>
+  	 <div class="one mobile-one columns hide-for-small">
+        	 <a href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Next Day Button'])"><img src="{{MEDIA_URL}}/images/arrow_right.png" style="padding-top:15px"/></a>
         </div>
-        <div class="one mobile-one columns push-one" style="padding-left:30px">
-           <a href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}"><img src="{{MEDIA_URL}}/images/arrow_right.png" /></a>
+ 	<div class="mobile-four columns push-one show-for-small" style="width:370px">
+           	<a class="mobile-one columns" href="/day/previous/{{date.year}}/{{date.month}}/{{date.day}}" style="padding-left:28px" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Previous Day Button'])"><img src="{{MEDIA_URL}}/images/arrow_left.png" style="padding-top:15px"/></a>
+		<a href="/" class="mobile-one columns font_text redText" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Today Button'])"><h3 style="padding-left:0px">TODAY</h3></a>
+		<a class="mobile-one columns" href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}" style="padding-left:14px" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Next Day Button'])"><img src="{{MEDIA_URL}}/images/arrow_right.png" style="padding-top:15px"/></a>
+	</div>
+	<div class="thre mobile-four columns show-for-large hide-for-small hide-for-medium">
+		<h3 class="font" style="padding-left:23px">{{str_date}}</h3>             
         </div>
-	<div class="three mobile-four columns push-two hide-for-small">
-                <h5 class="font">{{str_date}}</h5>
+	<div class="thre mobile-four columns show-for-medium">
+                <h3 class="font" style="padding-left:0px">{{str_date}}</h3> 
         </div>
         <div class="three mobile-four columns show-for-small" style="align:center">
-                <h5 class="font" style="align:center">{{str_date}}</h5>
+                <h3 class="font" style="align:center">{{str_date}}</h3>
         </div>
-        <div class="five mobile-four columns push-two hide-for-small" style="padding-left:0px">
-            <p><a href="javascript:getMail(); changeSubs()"  class="small alert round button shaddowButton" id="subs" ><span class="font_button"><b>Subscribe to Daily Challenge Emails</b></span></a></p>
+        <div class="five mobile-four columns push-two show-for-large hide-for-small hide-for-medium">
+            <p class="font_text redText" style="padding-top:10px; padding-left:27px">Receive Daily Challenge Emails:</p>
         </div>
-         <div class="five mobile-four columns push-one show-for-small" style="align:center">
-            <p><a href="javascript: getMail(); changeSubs()" style="align:center" class="small alert round button shaddowButton" id="subs-s"><span class="font_button"><b>Subscribe to Daily Challenge Emails</b></span></a></p>
+	<div class="thre mobile-four columns show-for-medium">
+            <p class="font_text redText" style="padding-top:10px; padding-left:0px">Receive Daily Challenge Emails:</p>
         </div>
    </div>
- </div>
- <script type="text/javascript">
-        function changeSubs(){
-        document.getElementById('subs').innerHTML="<span class='font_button'><b>Unsubscribe from Daily Challenge Emails</b></span>";
- document.getElementById('subs-s').innerHTML="<span class='font_button'><b>Unsubscribe from Daily Challenge Emails</b></span>";
-    }   
-    </script>
-  <div class="row">
-    <div class="eight columns push-four">
-   
-      <h3 align='center'> <span class="font"> Today's Theme: <span class="redText"> {{dc.theme}} </span></span></h3>
+
+<div class="row" style="padding-left:30px">
+ 	<div class="five columns push-six show-for-large hide-for-small hide-for-medium" style="padding-left:142px">
+	  	<input class="six columns push-four" placeholder="email@email.com" type="text" name="email" id="email"/>
+        	<div class="three columns" style="padding-left:50px">
+			    <a href="javascript:subscribe(); _gaq.push(['_trackEvent', 'Social', 'Subscribe Button'])" class="tiny alert round button shaddowButton" id="subs"><span class="font_button"><b>Subscribe</b></span></a>
+		</div>
+	</div>
+	 <div class="five columns push-one show-for-medium" style="padding-left:50px; width:315px">
+                <input class="seven columns pull-one" style="width:120px" placeholder="email@email.com" type="text" name="email" id="email_tablet"/>
+                <div class="three columns pull-three" style="padding-left:0px">
+                            <a href="javascript:subscribe(); _gaq.push(['_trackEvent', 'Social', 'Subscribe Button'])" class="tiny alert round button shaddowButton" id="subs"><span class="font_button"><b>Subscribe</b></span></a>
+                </div>
+        </div>
+
+</div>
+  <div class="row" style="padding-bottom:50px">
+    <div class="eight columns push-four">   
+      <h3 align='center' class="hide-for-small hide-for-medium show-for-large"> <span class="font"> Today's Theme: <span class="redText"> {{dc.theme}} </span></span></h3>
+      <h3 align='center' class="show-for-small"> <span class="font"> Today's Theme: </span></h3>
+      <h3 align='center' class="show-for-small"> <span class="redText font"> {{dc.theme}}</span></h3>
+      <h3 align='center' class="show-for-medium"> <span class="font"> Today's Theme: </span></h3>
+      <h3 align='center' class="show-for-medium"> <span class="redText font"> {{dc.theme}}</span></h3>
       <hr>
       <!-- Grid Example -->
       <div class="row">
         <div class="twelve columns">
-            <p><span class="font_text">{{dc.quote}}</span></p>
+            <p style="test-align:justify"><span class="font_text">{{dc.quote}}</span></p>
         </div>
       </div>
       <div class="row">
-        <div class="four mobile-two columns push-eight ">
-            <p><span class="font_text">-{{dc.attribution}}</span></p>
+        <div class="four mobile-four columns push-eight ">
+            <p style="text-align:right"><span class="font_text">-{{dc.attribution}}</span></p>
         </div>
       </div>
      <div class="row">
      <div class="twelve columns">
-            <p style="color:darkred"><span class="font_text">{{dc.challenge}}</span> </p>
+            <p style="color:darkred; text-align:justify"><span class="font_text">{{dc.challenge}}</span> </p>
      </div>  
      </div>   
+
       <div class="row">
         <div class="six mobile-two columns">
-          <p><a href="javascript: challengeAFriend('{{dc.theme}}','{{date.year}}','{{date.month}}','{{date.day}}')" class="small alert round button shaddowButton"><span class="font_button"><b>Challenge a Friend</b></span></a></p>
+          <a href="javascript: challengeAFriend('{{dc.theme}}','{{date.year}}','{{date.month}}','{{date.day}}'); _gaq.push(['_trackEvent', 'Social', 'Challenge Friends Button'])" style="width:164px"  class="small alert round button shaddowButton"><span class="font_button" style="text-align:center"><b>Challenge Friends</b></span></a>
         </div>
-        <div class="six mobile-two columns push-four">
-         <p><a href="javascript: didIt('{{date.year}}','{{date.month}}','{{date.day}}'), changeStyle()" class="small alert round button shaddowButton" id="didit"><span class="font_button"><b>Did It!</b></span></a></p>
+        <div class="three mobile-two columns push-three show-for-large hide-for-small hide-for-medium" style="padding-left:43px">
+         <a href='javascript: postToFeed("http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}","http://challenges4change.org{{MEDIA_URL}}images/Logo_512x512_2.png","{{dc.theme}}","{{dc.challenge}}"); _gaq.push(["_trackEvent", "Social", "I Did It Button"])' style="width:112px"class="small alert round button shaddowButton" id="didit"><span class="font_button" style="text-align:center"><b>I Did It!</b></span></a>
+        </div>
+	 <div class="three mobile-two columns push-three show-for-medium" style="padding-left:0px">
+         <a href='javascript: postToFeed("http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}","http://challenges4change.org{{MEDIA_URL}}images/Logo_512x512_2.png","{{dc.theme}}","{{dc.challenge}}"); _gaq.push(["_trackEvent", "Social", "I Did It Button"])' style="width:100px"class="small alert round button shaddowButton" id="didit"><span class="font_button" style="text-align:center"><b>I Did It!</b></span></a>
+        </div>
+        <div class="three mobile-two columns push-three show-for-small" style="padding-left:43px">
+         <a href='javascript: postToFeed("http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}","http://challenges4change.org{{MEDIA_URL}}images/Logo_512x512_2.png","{{dc.theme}}","{{dc.challenge}}"); _gaq.push(["_trackEvent", "Social", "I Did It Button"])' style="width:100px"class="small alert round button shaddowButton" id="didit"><span class="font_button" style="text-align:center"><b>I Did It!</b></span></a>
         </div>
       </div>
-    </div>
-    
-    <script type="text/javascript">
-	function changeStyle(){
-        document.getElementById('didit').innerHTML="Undo it";
-	document.getElementById('didit').setAttribute("class", "small success round button");
-    }	
-    </script>
-    
-    <div class="four columns pull-eight">
-	<div class="five columns">
-		<a href="javascript:fbLogin()" id="login"><div class="fb-login-button" data-show-faces="false" data-width="150" data-max-rows="1"></div></a>
-		<a href="javascript:fbLogout()" style="display:none" id='logout'><img src="{{MEDIA_URL}}/images/FbLog Out_bold_22px-hi.png"/></a>
-	</div>
-        <div class="two columns pull-six">
-		<div class="fb-send" data-href="http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}"></div>
-        </div>
-    </div>
-    <div class="four columns pull-eight" style="padding-top:15px">
-        <div class="one columns push-one">
-		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://btcinteract.com" data-text="Today's Daily Challenge Theme: {{dc.theme}}" data-lang="en">Tweet</a>
-        </div>
-	<div class="three columns pull-five">
-		<a href=# ><img src="{{MEDIA_URL}}/images/email_send.png" /></a>
-	</div>
-    </div>
-   
-   <div class = "four columns pull-eight">
-     <div class="eight columns push two" style="padding-top:15px">
 
-    <div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="240" data-height="800" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
+      <div class="row" style="padding-top:30px">
+	  <div class="two mobile-one columns">
+		<a href="https://twitter.com/share" onclick="_gaq.push(['_trackEvent', 'Social', 'Tweet Button'])" class="twitter-share-button" data-url="http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}" data-text="Today's Daily Challenge Theme: {{dc.theme}}" data-lang="en">Tweet</a>
+	  </div>
+	  <div class="ten mobile-four columns hide-for-small">
+		<div class="fb-like" data-href="http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}" data-send="true" data-width="225" data-show-faces="false" data-action="recommend"></div>
+          </div>
+	<div class="mobile-three columns show-for-small">
+		<div class="fb-like" data-href="http://challenges4change.org/day/{{date.year}}/{{date.month}}/{{date.day}}" data-send="false" data-width="100" data-show-faces="false" data-layout="button_count" data-action="recommend"></div>
+	</div>
+      </div>
+    </div>
+
+ <div class = "four columns pull-eight hide-for-small">
+     <div class="eight columns push two">
+    	<div class="fb-like-box" style="padding-bottom:50px" data-href="http://www.facebook.com/btcinteract" data-width="240" data-height="400" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
      </div>
-   </div>
+</div>
 
-{% if request.facebook_message %}{{ request.facebook_message }}{% endif %} 
+</div>
+
+<div class="row show-for-small hide-for-large" style="padding-top:25px; padding-left:15px; padding-right:0px">
+        <div class="mobile-four columns" >
+                <p class="font_text redText">Receive Daily Challenge Emails:</p>
+        </div>
+</div>
+<div class="row hide-for-large show-for-small">
+	<div class="two mobile-two columns" style="padding-left:30px">
+        	<input type="text" name="email" id="email_mobile" placeholder="email@email.com"/>   
+        </div>
+	<div class="mobile-one columns pull-one-mobile" style="padding-right:0px; padding-left:0px">	
+		<a href="javascript:subscribe(); _gaq.push(['_trackEvent', 'Social','Subscribe Button'])" class=" small alert round button shaddowButton" style="text-align:center; width:112px" id="subs"><span class="font_button"><b>Subscribe</b></span></a>
+	</div>
+</div>
+
+<div class="row"><div class="mobile-four columns show-for-small" id="alert-message-mobile" style="padding-top:15px" ></div></div>
+<div class="row show-for-small hide-for-large" style="padding-top:15px">
+   <div class = "mobile-four columns" style="padding:0px">
+    	<div class="fb-like-box" data-href="http://www.facebook.com/btcinteract" data-width="240" style="padding-left:40px" data-height="400" data-show-faces="true" data-border-color="darkred" data-stream="false" data-header="false"></div>
+   </div>
+</div>
+<footer>
+<div class="row">
+	<div class="twelve mobile-four columns">
+		<hr>
+	</div>
+</div>
+<div class="row">
+	<div class="twelve columns">
+		<p style="padding-left:10px; text-align:justify; padding-right:0px">Support the ongoing development of the Challenges4Change project on <a href="http://www3.indiegogo.com/btcm" style="color:darkred">Indiegogo</a>.  Challenges4Change is produced for the benefit of<a href="http://challengeday.org/" style="color:darkred"> Challenge Day</a> and the <a href="http://www.challengeday.org/notice-choose-act-network.php" style="color:darkred">Be The Change Movement</a>.  Download the <a href="http://itunes.apple.com/app/be-change-daily-challenge/id383252853?mt=8" onclick="javascript: _gaq.push(['_trackEvent','Social','Download app'])" style="color:darkred">Be The Change iPhone App!</a></p>
+	</div>
+</div>
+
+</footer>
 
 <div id="fb-root"></div>
 
@@ -158,6 +208,9 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+<!-- Twitter script -->
+
 <script>!function(d,s,id) {
 var js,fjs=d.getElementsByTagName(s)[0];
 if(!d.getElementById(id)){
@@ -167,6 +220,15 @@ js.src="//platform.twitter.com/widgets.js";
 fjs.parentNode.insertBefore(js,fjs);}
 }(document,"script","twitter-wjs");</script>
 
+
+  <!-- Google analytics script -->
+<script type="text/javascript">
+ (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
   <!-- Included JS Files -->
   <script src="{{MEDIA_URL}}/js/jquery.min.js"></script>
   <script src="{{MEDIA_URL}}/js/jquery.reveal.js"></script>
@@ -176,5 +238,5 @@ fjs.parentNode.insertBefore(js,fjs);}
   <script src="{{MEDIA_URL}}/js/jquery.tooltips.js"></script>
   <script src="{{MEDIA_URL}}/js/app.js"></script>
   <script src="{{MEDIA_URL}}/js/daily_challenge.js"></script>
-</body>
+ </body>
 </html>
