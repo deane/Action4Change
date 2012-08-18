@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/83/trunk/django_openid/docs
+END
+conf.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/83/trunk/django_openid/docs/conf.py
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/83/trunk/django_openid/docs/Makefile
+END
+installation.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/83/trunk/django_openid/docs/installation.txt
+END
+index.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/83/trunk/django_openid/docs/index.txt
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/83/trunk/django_openid/docs/__init__.py
+END
+accepting-openid.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/83/trunk/django_openid/docs/accepting-openid.txt
+END

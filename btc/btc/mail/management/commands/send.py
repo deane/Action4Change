@@ -17,8 +17,8 @@ class Command(BaseCommand):
                 return urllib2.quote('\
 <a href="http://challenges4change.org/day/'+str(tdate.year)+'/'+str(tdate.month)+'/'+str(tdate.day)+'">View the Daily Challenge online</a>\
 <br><br><br>\
-Today\'s Theme : '+today.theme+'<br><br>\
-'+today.quote+' -'+today.attribution+'<br><br>\
+Today\'s Theme: '+today.theme+'<br><br>\
+'+today.quote+'<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-'+today.attribution+'<br><br>\
 '+today.challenge+'<br><br><br><br><br>\
 Daily Challenges are brought to you by <a href="http://challengeday.org">Challenge Day</a> and the Be The Change Movement<br><br><br><br><br>\
 To unsubscribe from these emails <a href="http://challenges4change.org/mail/un/?mail='+email+'">click here</a>\
@@ -30,7 +30,7 @@ To unsubscribe from these emails <a href="http://challenges4change.org/mail/un/?
             print('sending to : '+r.rem_address)
             mail = urllib2.quote(r.rem_address)
             req = urllib2.Request('\
-http://sendgrid.com/api/mail.send.json?to='+mail+'&from='+FROM+'&fromname=Challenges%204%20Change&subject='+SUBJECT+'&html='+MESSAGE(tdate, today, mail)+'&api_user=dean&api_key=dean1')
+http://sendgrid.com/api/mail.send.json?to='+mail+'&from='+FROM+'&fromname=Challenges4Change&subject='+SUBJECT+'&html='+MESSAGE(tdate, today, mail)+'&api_user=dean&api_key=dean1')
             response = urllib2.urlopen(req)
             feedback = response.read()
             print(feedback)

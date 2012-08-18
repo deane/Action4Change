@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/90/trunk/django_openid/demos/consumer_django11
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/90/trunk/django_openid/demos/consumer_django11/settings.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/90/trunk/django_openid/demos/consumer_django11/urls.py
+END
+manage.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/90/trunk/django_openid/demos/consumer_django11/manage.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/90/trunk/django_openid/demos/consumer_django11/__init__.py
+END

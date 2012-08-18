@@ -71,7 +71,7 @@
 		<a href="/" class="mobile-one columns font_text redText" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Today Button'])"><h3 style="padding-left:0px">TODAY</h3></a>
 		<a class="mobile-one columns" href="/day/next/{{date.year}}/{{date.month}}/{{date.day}}" style="padding-left:14px" onclick="_gaq.push(['_trackEvent', 'App Nav', 'Next Day Button'])"><img src="{{MEDIA_URL}}/images/arrow_right.png" style="padding-top:15px"/></a>
 	</div>
-	<div class="thre mobile-four columns show-for-large hide-for-small hide-for-medium">
+	<div class="thre mobile-four columns show-for-large-up hide-for-small hide-for-medium">
 		<h3 class="font" style="padding-left:23px">{{str_date}}</h3>             
         </div>
 	<div class="thre mobile-four columns show-for-medium">
@@ -80,7 +80,7 @@
         <div class="three mobile-four columns show-for-small" style="align:center">
                 <h3 class="font" style="align:center">{{str_date}}</h3>
         </div>
-        <div class="five mobile-four columns push-two show-for-large hide-for-small hide-for-medium">
+        <div class="five mobile-four columns push-two show-for-large-up hide-for-small hide-for-medium">
             <p class="font_text redText" style="padding-top:10px; padding-left:27px">Receive Daily Challenge Emails:</p>
         </div>
 	<div class="thre mobile-four columns show-for-medium">
@@ -89,7 +89,7 @@
    </div>
 
 <div class="row" style="padding-left:30px">
- 	<div class="five columns push-six show-for-large hide-for-small hide-for-medium" style="padding-left:142px">
+ 	<div class="five columns push-six show-for-large-up hide-for-small hide-for-medium" style="padding-left:142px">
 	  	<input class="six columns push-four" placeholder="email@email.com" type="text" name="email" id="email"/>
         	<div class="three columns" style="padding-left:50px">
 			    <a href="javascript:subscribe(); _gaq.push(['_trackEvent', 'Social', 'Subscribe Button'])" class="tiny alert round button shaddowButton" id="subs"><span class="font_button"><b>Subscribe</b></span></a>
@@ -105,7 +105,7 @@
 </div>
   <div class="row" style="padding-bottom:50px">
     <div class="eight columns push-four">   
-      <h3 align='center' class="hide-for-small hide-for-medium show-for-large"> <span class="font"> Today's Theme: <span class="redText"> {{dc.theme}} </span></span></h3>
+      <h3 align='center' class="hide-for-small hide-for-medium show-for-large-up"> <span class="font"> Today's Theme: <span class="redText"> {{dc.theme}} </span></span></h3>
       <h3 align='center' class="show-for-small"> <span class="font"> Today's Theme: </span></h3>
       <h3 align='center' class="show-for-small"> <span class="redText font"> {{dc.theme}}</span></h3>
       <h3 align='center' class="show-for-medium"> <span class="font"> Today's Theme: </span></h3>

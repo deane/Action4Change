@@ -126,7 +126,7 @@ function startOverlay(url_img){
 	if(getCookie('start') == 'true'){
 		return;
 	} else {
-		var info = '<div class="spaced_overlay"><a href="http://bit.ly/c4c-igg"><img src="http://challenges4change.org/static/images/C4ConIndiegogo.png" /></a></div>';
+		var info = '<div class="spaced_overlay"><a href="http://bit.ly/c4c-igg" onclick="javascript:closeOverlay()" target="_blank"><img src="http://challenges4change.org/static/images/C4ConIndiegogo.png" /></a></div>';
 		popupOffer('Please help support this project. Go to our fundraising campaign to contribute: ', info);
 		setCookie('start', 'true');	
 	}

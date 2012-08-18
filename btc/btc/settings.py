@@ -111,9 +111,9 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django_openid.consumer.SessionConsumer",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "pinax.apps.account.middleware.LocaleMiddleware",
+#    "pinax.apps.account.middleware.LocaleMiddleware",
     "pagination.middleware.PaginationMiddleware",
-    "pinax.middleware.security.HideSensistiveFieldsMiddleware",
+#    "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "challenge.FacebookConnectMiddleware.FacebookConnectMiddleware",
 ]
@@ -137,9 +137,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     
     "staticfiles.context_processors.static",
     
-    "pinax.core.context_processors.pinax_settings",
+#    "pinax.core.context_processors.pinax_settings",
     
-    "pinax.apps.account.context_processors.account",
+#    "pinax.apps.account.context_processors.account",
     
     "notification.context_processors.notification",
     "announcements.context_processors.site_wide_announcements",
@@ -157,10 +157,10 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "cronjobs",
         
-    "pinax.templatetags",
+#    "pinax.templatetags",
     
     # theme
-    "pinax_theme_bootstrap",
+#    "pinax_theme_bootstrap",
     
     # external
     "notification", # must be first
@@ -177,8 +177,8 @@ INSTALLED_APPS = [
     "metron",
     
     # Pinax
-    "pinax.apps.account",
-    "pinax.apps.signup_codes",
+#    "pinax.apps.account",
+#    "pinax.apps.signup_codes",
     
     # project
     "about",
@@ -225,7 +225,7 @@ ACCOUNT_EMAIL_AUTHENTICATION = False
 ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = True
 
 AUTHENTICATION_BACKENDS = [
-    "pinax.apps.account.auth_backends.AuthenticationBackend",
+#    "pinax.apps.account.auth_backends.AuthenticationBackend",
     'django_facebook.auth_backends.FacebookBackend',
 ]
 
